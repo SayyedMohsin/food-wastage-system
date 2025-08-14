@@ -1,0 +1,23 @@
+
+### 2. `.gitignore`  
+**C:\food-wastage-system\.gitignore** में डालें:
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# Database
+db/food_wastage.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
