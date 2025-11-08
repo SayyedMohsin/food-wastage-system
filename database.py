@@ -1,6 +1,8 @@
 import pandas as pd
 from sqlalchemy import create_engine
 import os
+import os, pprint
+pprint.pprint(os.listdir("data"))
 
 # Relative path + auto-create folder
 DB_PATH = os.path.join(os.path.dirname(__file__), "db", "food_wastage.db")
