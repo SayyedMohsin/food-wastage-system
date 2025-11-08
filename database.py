@@ -1,7 +1,11 @@
 import pandas as pd
 from sqlalchemy import create_engine
+import os
 
-DB_PATH = "db/food_wastage.db"
+# Relative path + auto-create folder
+DB_PATH = os.path.join(os.path.dirname(__file__), "db", "food_wastage.db")
+os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+
 engine = create_engine(f"sqlite:///{DB_PATH}", echo=False)
 
 def load_excel_to_sql():
@@ -13,7 +17,6 @@ def load_excel_to_sql():
     }
     for table, file in tables.items():
         df = pd.read_excel(file)
-        # सारे column names को lower-case करें ताकि case-sensitive error न हो
         df.columns = [c.lower() for c in df.columns]
         df.to_sql(table, engine, if_exists='replace', index=False)
     print("✅ All Excel files loaded into SQLite.")
