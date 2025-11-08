@@ -15,10 +15,10 @@ engine = create_engine(f"sqlite:///{DB_PATH}", echo=False)
 def load_excel_to_sql():
     # Exact names जैसा GitHub पर दिख रहा है (case-sensitive)
     tables = {
-        'food_listings': 'data/food_listings_data.xlsx',
-        'providers':     'data/Providers_data.xlsx',
-        'receivers':     'data/receivers_data.xlsx',
-        'claims':        'data/claims_data.xlsx'
+    'food_listings': 'data/food_listings_data.xlsx',
+    'providers':     'data/providers_data.xlsx',  # ← lower case
+    'receivers':     'data/receivers_data.xlsx',
+    'claims':        'data/claims_data.xlsx'
     }
     for table, file in tables.items():
         if not os.path.isfile(file):
